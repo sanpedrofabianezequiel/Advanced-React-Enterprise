@@ -1,0 +1,26 @@
+{
+  "name": "Advanced-React",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sanpedrofabianezequiel/Advanced-React-Enterprise.git",
+  "author": "sanpedrofabianezequiel <sanpedrofabianezequiel@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "normalize-scss": "^7.0.1"
+  },
+  "scripts": {
+    "build":"node src/scripts/build.js ",
+    "lint:fix": "yarn lint --fix",
+    "lint": "stylelint ./**/*.scss"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint:fix"
+    }
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.0",
+    "node-sass": "^7.0.1"
+  }
+}
