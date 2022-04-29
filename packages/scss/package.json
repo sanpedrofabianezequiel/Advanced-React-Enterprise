@@ -1,26 +1,41 @@
 {
-  "name": "Advanced-React",
-  "version": "1.0.0",
+  "name": "@ds.e/scss",
+  "version": "0.1.3",
   "main": "index.js",
-  "repository": "https://github.com/sanpedrofabianezequiel/Advanced-React-Enterprise.git",
-  "author": "sanpedrofabianezequiel <sanpedrofabianezequiel@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "normalize-scss": "^7.0.1"
   },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "stylelint": "^13.6.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-sass-guidelines": "^7.0.0",
+    "stylelint-prettier": "^1.1.2"
+  },
   "scripts": {
-    "build":"node src/scripts/build.js ",
+    "lint": "stylelint './**/*.scss'",
     "lint:fix": "yarn lint --fix",
-    "lint": "stylelint ./**/*.scss"
+    "build": "node src/scripts/build.js",
+    "dev": "nodemon --watch src --exec yarn build -e scss"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint:fix"
+      "pre-commit": "lint-staged"
     }
   },
-  "devDependencies": {
-    "husky": "^7.0.4",
-    "lint-staged": "^12.4.0",
-    "node-sass": "^7.0.1"
+  "lint-staged": {
+    "*.scss": "yarn lint:fix"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
